@@ -8,8 +8,7 @@
 
 \brief          Ini file parser/serializer
 
-Old lib of mine, with bad exception handling. XML docs may be outdated.
-Should be rewritten.
+Old lib of mine, with bad exception handling. XML docs may be outdated now.
 
 But does it's job
 

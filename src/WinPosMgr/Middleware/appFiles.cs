@@ -2,7 +2,7 @@
 
 \author         Oliver Blaser
 
-\date           14.12.2020
+\date           17.12.2020
 
 \copyright      GNU GPLv3 - Copyright (c) 2020 Oliver Blaser
 
@@ -46,6 +46,16 @@ namespace WinPosMgr.Middleware.AppFiles
 
         public static void CreateInexistents()
         {
+        }
+
+        public static class FileDialogFilter
+        {
+            public const string Join = "|";
+            public const string AllFiles = "All Files (*.*)|*.*";
+
+            public const string CSV = "CSV Files (*.csv)|*.csv";
+            public const string Ini = "ini Files (*.ini)|*.ini";
+            public const string Text = "Text Files (*.txt)|*.txt";
         }
     }
 }

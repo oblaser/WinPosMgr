@@ -434,6 +434,24 @@ namespace WinPosMgr.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string mainForm_toolStripMenuItem_options_settings_Text {
+            get {
+                return ResourceManager.GetString("mainForm_toolStripMenuItem_options_settings_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Options.
+        /// </summary>
+        internal static string mainForm_toolStripMenuItem_options_Text {
+            get {
+                return ResourceManager.GetString("mainForm_toolStripMenuItem_options_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Process not found:.
         /// </summary>
         internal static string nsApplication_Job_Run_Warning_ProcNotFound {
@@ -457,6 +475,51 @@ namespace WinPosMgr.Properties {
         internal static string nsApplication_JobsFile_Get_ErrorParse {
             get {
                 return ResourceManager.GetString("nsApplication_JobsFile_Get_ErrorParse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default Mode.
+        /// </summary>
+        internal static string settings_general_defaultOpMode {
+            get {
+                return ResourceManager.GetString("settings_general_defaultOpMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jobs file.
+        /// </summary>
+        internal static string settings_general_jobsFile {
+            get {
+                return ResourceManager.GetString("settings_general_jobsFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error reporting in run mode.
+        /// </summary>
+        internal static string settings_general_opModeRunErrRep {
+            get {
+                return ResourceManager.GetString("settings_general_opModeRunErrRep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to General.
+        /// </summary>
+        internal static string settings_tab_general {
+            get {
+                return ResourceManager.GetString("settings_tab_general", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string settings_titel {
+            get {
+                return ResourceManager.GetString("settings_titel", resourceCulture);
             }
         }
     }

@@ -110,6 +110,8 @@ namespace WinPosMgr
         #region moreControls
         private ToolStripMenuItem toolStripMenuItem_file;
         private ToolStripMenuItem toolStripMenuItem_file_exit;
+        private ToolStripMenuItem toolStripMenuItem_options;
+        private ToolStripMenuItem toolStripMenuItem_options_settings;
         private ToolStripMenuItem toolStripMenuItem_help;
         private ToolStripMenuItem toolStripMenuItem_help_gitHubPage;
         private ToolStripMenuItem toolStripMenuItem_help_about;
@@ -135,6 +137,13 @@ namespace WinPosMgr
             this.toolStripMenuItem_file_exit.Click += new EventHandler(this.toolStripMenuItem_file_exit_Click);
             this.toolStripMenuItem_file_exit.Text = Properties.Strings.mainForm_toolStripMenuItem_file_exit_Text;
 
+            this.toolStripMenuItem_options = new ToolStripMenuItem();
+            this.toolStripMenuItem_options.Text = Properties.Strings.mainForm_toolStripMenuItem_options_Text;
+
+            this.toolStripMenuItem_options_settings = new ToolStripMenuItem();
+            this.toolStripMenuItem_options_settings.Click += new EventHandler(this.toolStripMenuItem_options_settings_Click);
+            this.toolStripMenuItem_options_settings.Text = Properties.Strings.mainForm_toolStripMenuItem_options_settings_Text;
+
             this.toolStripMenuItem_help = new ToolStripMenuItem();
             this.toolStripMenuItem_help.Text = Properties.Strings.mainForm_toolStripMenuItem_help_Text;
 
@@ -147,9 +156,11 @@ namespace WinPosMgr
             this.toolStripMenuItem_help_about.Text = Properties.Strings.mainForm_toolStripMenuItem_help_about_Text;
 
             this.toolStripMenuItem_file.DropDownItems.Add(this.toolStripMenuItem_file_exit);
+            this.toolStripMenuItem_options.DropDownItems.Add(this.toolStripMenuItem_options_settings);
             this.toolStripMenuItem_help.DropDownItems.Add(this.toolStripMenuItem_help_gitHubPage);
             this.toolStripMenuItem_help.DropDownItems.Add(this.toolStripMenuItem_help_about);
             this.menuStrip1.Items.Add(this.toolStripMenuItem_file);
+            this.menuStrip1.Items.Add(this.toolStripMenuItem_options);
             this.menuStrip1.Items.Add(this.toolStripMenuItem_help);
 
             //
@@ -208,6 +219,17 @@ namespace WinPosMgr
         private void toolStripMenuItem_file_exit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void toolStripMenuItem_options_settings_Click(object sender, EventArgs e)
+        {
+            Forms.settings sf = new Forms.settings(this.settings);
+
+            if(sf.ShowDialog() == DialogResult.OK)
+            {
+                Application.Settings.Save(sf.GetSettings());
+                this.settings = Application.Settings.Get();
+                this.reloadJobs();
+            }
         }
         private void toolStripMenuItem_help_gitHubPage_Click(object sender, EventArgs e)
         {
