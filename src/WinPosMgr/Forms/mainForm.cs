@@ -2,7 +2,7 @@
 
 \author         Oliver Blaser
 
-\date           15.12.2020
+\date           17.12.2020
 
 \copyright      GNU GPLv3 - Copyright (c) 2020 Oliver Blaser
 
@@ -27,6 +27,7 @@ namespace WinPosMgr
     {
         private Application.Settings settings;
         private Application.JobsFile jobsFile;
+        private JobListItem[] jobListItems;
 
         public mainForm()
         {
@@ -249,8 +250,9 @@ namespace WinPosMgr
             try
             {
                 int id = this.getSelectedJobId();
+                var job = this.jobsFile.Get(id);
 
-                Forms.editJob ejd = new Forms.editJob(Properties.Strings.editJob_title_edit, this.jobsFile.Get(id));
+                Forms.editJob ejd = new Forms.editJob(Properties.Strings.editJob_title_edit + " [" + job.ID + "] " + job.ProcessName, job);
 
                 if (ejd.ShowDialog(this) == DialogResult.OK)
                 {
@@ -387,9 +389,16 @@ namespace WinPosMgr
 
         private int getSelectedJobId()
         {
-            string[] tmp = this.listBox_jobs.Text.Split(new char[] { '[', ']' }, StringSplitOptions.RemoveEmptyEntries);
+            int index = this.listBox_jobs.SelectedIndex;
 
-            return Convert.ToInt32(tmp[0]);
+            if((index>= 0)&&(index <this.jobListItems.Length))
+            {
+                return this.jobListItems[index].ID;
+            }
+            else
+            {
+                return -1;
+            }
         }
         private void reloadJobs()
         {
@@ -407,11 +416,17 @@ namespace WinPosMgr
                 this.listBox_jobs.Items.Clear();
 
                 var tmpJobs = this.jobsFile.Get();
+                List<JobListItem> tmpJobListItems = new List<JobListItem>(0);
 
                 foreach (var job in tmpJobs)
                 {
-                    this.listBox_jobs.Items.Add("[" + job.ID.ToString() + "] " + job.ToString());
+                    tmpJobListItems.Add(new JobListItem(job));
                 }
+
+                tmpJobListItems.Sort();
+
+                this.jobListItems = tmpJobListItems.ToArray();
+                this.listBox_jobs.Items.AddRange(this.jobListItems);
             }
             catch (Exception ex) { Forms.MessageBox.Error(ex.Message); }
         }
@@ -424,5 +439,37 @@ namespace WinPosMgr
 #if(DEBUG)
         private bool tmpDEBUG; // the automatically generated event functions are placed after this line (the last in this class) by Visual Studio
 #endif
+    }
+}
+
+
+//
+// types
+//
+namespace WinPosMgr
+{
+    partial class mainForm
+    {
+        private class JobListItem : IComparable<JobListItem>
+        {
+            public int ID { get; private set; }
+            public string DisplayText { get; private set; }
+
+            public JobListItem(Application.Job job)
+            {
+                this.ID = job.ID;
+                this.DisplayText = job.ToString();
+            }
+
+            public int CompareTo(JobListItem jli)
+            {
+                return this.DisplayText.CompareTo(jli.DisplayText);
+            }
+
+            public override string ToString()
+            {
+                return this.DisplayText;
+            }
+        }
     }
 }
