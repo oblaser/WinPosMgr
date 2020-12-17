@@ -219,7 +219,7 @@ namespace WinPosMgr
         }
         private void toolStripMenuItem_help_about_Click(object sender, EventArgs e)
         {
-            Forms.About af = new Forms.About();
+            Forms.about af = new Forms.about();
             af.ShowDialog(this);
         }
         private void toolStripButton_job_add_Click(object sender, EventArgs e)

@@ -1,7 +1,7 @@
 ﻿
 namespace WinPosMgr.Forms
 {
-    partial class About
+    partial class about
     {
         /// <summary>
         /// Required designer variable.
@@ -53,7 +53,6 @@ namespace WinPosMgr.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(394, 261);
             this.Controls.Add(this.textBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "About";
