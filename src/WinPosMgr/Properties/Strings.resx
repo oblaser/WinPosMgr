@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="about_title" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="cliArg_error_invalidArg" xml:space="preserve">
+    <value>Invalid commandline arguments!
+Now running in GUI mode.</value>
+  </data>
+  <data name="cliArg_opMode_gui" xml:space="preserve">
+    <value>gui</value>
+  </data>
+  <data name="cliArg_opMode_run" xml:space="preserve">
+    <value>run</value>
+  </data>
+  <data name="editJob_button_test" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="editJob_checkBox_enabled" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="editJob_checkBox_noMove" xml:space="preserve">
+    <value>NoMove</value>
+  </data>
+  <data name="editJob_checkBox_noSize" xml:space="preserve">
+    <value>NoSize</value>
+  </data>
+  <data name="editJob_checkBox_noZOrder" xml:space="preserve">
+    <value>NoZOrder</value>
+  </data>
+  <data name="editJob_groupBox_flags" xml:space="preserve">
+    <value>Flags</value>
+  </data>
+  <data name="editJob_groupBox_position" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="editJob_groupBox_searchProc" xml:space="preserve">
+    <value>Search Process</value>
+  </data>
+  <data name="editJob_groupBox_size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="editJob_title_edit" xml:space="preserve">
+    <value>Edit Job</value>
+  </data>
+  <data name="editJob_title_new" xml:space="preserve">
+    <value>New Job</value>
+  </data>
+  <data name="editJob_warning_invalidPosition" xml:space="preserve">
+    <value>Invalid position.
+Value remains unchanged.</value>
+  </data>
+  <data name="editJob_warning_invalidSize" xml:space="preserve">
+    <value>Invalid size.
+Value remains unchanged.</value>
+  </data>
+  <data name="editJob_warning_invalidZPosition" xml:space="preserve">
+    <value>Invalid Z position.
+Value remains unchanged.</value>
+  </data>
+  <data name="gApply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="gAppName" xml:space="preserve">
+    <value>Window Position Manager</value>
+  </data>
+  <data name="gAppName_abbr" xml:space="preserve">
+    <value>WinPosMgr</value>
+  </data>
+  <data name="gCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="gError" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="gFatalError" xml:space="preserve">
+    <value>Fatal Error!</value>
+  </data>
+  <data name="gInfo" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="gInformation" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="gNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="gOK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="gWarning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="gYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="mainForm_deleteJobDialog" xml:space="preserve">
+    <value>Do you want to delete the selected job permanently?</value>
+  </data>
+  <data name="mainForm_toolStripButton_job_add_Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="mainForm_toolStripButton_job_edit_Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="mainForm_toolStripButton_job_reload_Text" xml:space="preserve">
+    <value>Reload</value>
+  </data>
+  <data name="mainForm_toolStripButton_job_remove_Text" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="mainForm_toolStripButton_job_run_Text" xml:space="preserve">
+    <value>Run</value>
+  </data>
+  <data name="mainForm_toolStripMenuItem_file_exit_Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="mainForm_toolStripMenuItem_file_Text" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="mainForm_toolStripMenuItem_help_about_Text" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="mainForm_toolStripMenuItem_help_gitHubPage_Text" xml:space="preserve">
+    <value>GitHub Repo (www)</value>
+    <comment>possible link char:⏵</comment>
+  </data>
+  <data name="mainForm_toolStripMenuItem_help_Text" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="nsApplication_JobsFile_Get_ErrorInvalidSection" xml:space="preserve">
+    <value>Invalid section</value>
+  </data>
+  <data name="nsApplication_JobsFile_Get_ErrorParse" xml:space="preserve">
+    <value>Could not parse job in section</value>
+  </data>
+  <data name="nsApplication_Job_Run_Warning_ProcNotFound" xml:space="preserve">
+    <value>Process not found:</value>
+  </data>
+</root>
