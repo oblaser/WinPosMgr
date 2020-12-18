@@ -2,7 +2,7 @@
 
 \author         Oliver Blaser
 
-\date           16.12.2020
+\date           18.12.2020
 
 \copyright      GNU GPLv3 - Copyright (c) 2020 Oliver Blaser
 
@@ -56,6 +56,15 @@ namespace WinPosMgr.Forms
             this.listBox_procSearchResult.Items.Clear();
             this.listBox_procSearchResult.Items.AddRange(this.filteredProcList(String.Empty));
 
+            this.numericUpDown_position_x.Enter += new EventHandler(this.numericUpDown_selectAllText);
+            this.numericUpDown_position_x.Click += new EventHandler(this.numericUpDown_selectAllText);
+            this.numericUpDown_position_y.Enter += new EventHandler(this.numericUpDown_selectAllText);
+            this.numericUpDown_position_y.Click += new EventHandler(this.numericUpDown_selectAllText);
+            this.numericUpDown_size_x.Enter += new EventHandler(this.numericUpDown_selectAllText);
+            this.numericUpDown_size_x.Click += new EventHandler(this.numericUpDown_selectAllText);
+            this.numericUpDown_size_y.Enter += new EventHandler(this.numericUpDown_selectAllText);
+            this.numericUpDown_size_y.Click += new EventHandler(this.numericUpDown_selectAllText);
+
             this.textBox_procName.Text = String.Empty;
             this.textBox_procSearchString.Text = String.Empty;
 
@@ -74,7 +83,6 @@ namespace WinPosMgr.Forms
 
         private void editJob_Load(object sender, EventArgs e)
         {
-
         }
         private void editJob_KeyUp(object sender, KeyEventArgs e)
         {
@@ -109,6 +117,10 @@ namespace WinPosMgr.Forms
         private void button_test_Click(object sender, EventArgs e)
         {
             Application.Job.Run(new Application.Job[] { this.GetJob() }, this.Handle);
+        }
+        private void numericUpDown_selectAllText(object sender, EventArgs e)
+        {
+            ((NumericUpDown)sender).Select(0, ((NumericUpDown)sender).Text.Length);
         }
 
 

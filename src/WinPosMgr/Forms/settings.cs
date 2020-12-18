@@ -1,4 +1,16 @@
-﻿using System;
+﻿/*!
+
+\author         Oliver Blaser
+
+\date           17.12.2020
+
+\copyright      GNU GPLv3 - Copyright (c) 2020 Oliver Blaser
+
+\brief          
+
+*/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
