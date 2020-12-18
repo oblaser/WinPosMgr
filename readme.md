@@ -2,6 +2,8 @@
 
 Moves and resizes windows on your MS Windows desktop environment.
 
+![](./assets/winposmgr_v0.1.0.png)
+
 This is actually a workaround for some annoying behaviour of a Windows machine within a multi screen setup and a KVM switch with only one video port.
 
 ## Command line arguments
