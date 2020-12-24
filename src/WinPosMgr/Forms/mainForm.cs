@@ -2,7 +2,7 @@
 
 \author         Oliver Blaser
 
-\date           17.12.2020
+\date           25.12.2020
 
 \copyright      GNU GPLv3 - Copyright (c) 2020 Oliver Blaser
 
@@ -109,12 +109,14 @@ namespace WinPosMgr
 
         #region moreControls
         private ToolStripMenuItem toolStripMenuItem_file;
+        private ToolStripMenuItem toolStripMenuItem_file_createLink;
         private ToolStripMenuItem toolStripMenuItem_file_exit;
         private ToolStripMenuItem toolStripMenuItem_options;
         private ToolStripMenuItem toolStripMenuItem_options_settings;
         private ToolStripMenuItem toolStripMenuItem_help;
         private ToolStripMenuItem toolStripMenuItem_help_gitHubPage;
         private ToolStripMenuItem toolStripMenuItem_help_about;
+        private ToolStripSeparator toolStripSeparator_file1;
 
         private ToolStrip toolStrip_job;
         private ToolStripButton toolStripButton_job_add;
@@ -132,6 +134,10 @@ namespace WinPosMgr
             //
             this.toolStripMenuItem_file = new ToolStripMenuItem();
             this.toolStripMenuItem_file.Text = Properties.Strings.mainForm_toolStripMenuItem_file_Text;
+
+            this.toolStripMenuItem_file_createLink = new ToolStripMenuItem();
+            this.toolStripMenuItem_file_createLink.Click += new EventHandler(this.toolStripMenuItem_file_createLink_Click);
+            this.toolStripMenuItem_file_createLink.Text = Properties.Strings.mainForm_toolStripMenuItem_file_createLink_Text;
 
             this.toolStripMenuItem_file_exit = new ToolStripMenuItem();
             this.toolStripMenuItem_file_exit.Click += new EventHandler(this.toolStripMenuItem_file_exit_Click);
@@ -155,6 +161,10 @@ namespace WinPosMgr
             this.toolStripMenuItem_help_about.Click += new EventHandler(this.toolStripMenuItem_help_about_Click);
             this.toolStripMenuItem_help_about.Text = Properties.Strings.mainForm_toolStripMenuItem_help_about_Text;
 
+            this.toolStripSeparator_file1 = new ToolStripSeparator();
+
+            this.toolStripMenuItem_file.DropDownItems.Add(this.toolStripMenuItem_file_createLink);
+            this.toolStripMenuItem_file.DropDownItems.Add(this.toolStripSeparator_file1);
             this.toolStripMenuItem_file.DropDownItems.Add(this.toolStripMenuItem_file_exit);
             this.toolStripMenuItem_options.DropDownItems.Add(this.toolStripMenuItem_options_settings);
             this.toolStripMenuItem_help.DropDownItems.Add(this.toolStripMenuItem_help_gitHubPage);
@@ -216,6 +226,39 @@ namespace WinPosMgr
 #endif
         }
 
+        private void toolStripMenuItem_file_createLink_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string basePath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+
+                IWshRuntimeLibrary.WshShell wsh = new IWshRuntimeLibrary.WshShell();
+                IWshRuntimeLibrary.IWshShortcut shortcut = wsh.CreateShortcut(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "WinPosMgr GUI.lnk")) as IWshRuntimeLibrary.IWshShortcut;
+                shortcut.Arguments = "gui";
+                shortcut.TargetPath = System.IO.Path.Combine(basePath, "winposmgr.exe");
+                // not sure about what this is for
+                shortcut.WindowStyle = 1;
+                shortcut.Description = "WinPosMgr GUI";
+                shortcut.WorkingDirectory = basePath;
+                shortcut.IconLocation = System.IO.Path.Combine(basePath, "winposmgr_icon.ico");
+                shortcut.Save();
+
+                wsh = new IWshRuntimeLibrary.WshShell();
+                shortcut = wsh.CreateShortcut(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "WinPosMgr RUN.lnk")) as IWshRuntimeLibrary.IWshShortcut;
+                shortcut.Arguments = "run";
+                shortcut.TargetPath = System.IO.Path.Combine(basePath, "winposmgr.exe");
+                // not sure about what this is for
+                shortcut.WindowStyle = 1;
+                shortcut.Description = "WinPosMgr RUN";
+                shortcut.WorkingDirectory = basePath;
+                shortcut.IconLocation = System.IO.Path.Combine(basePath, "winposmgr_icon_run.ico");
+                shortcut.Save();
+            }
+            catch(Exception ex)
+            {
+                Forms.MessageBox.Warning(ex.Message);
+            }
+        }
         private void toolStripMenuItem_file_exit_Click(object sender, EventArgs e)
         {
             this.Close();

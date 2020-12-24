@@ -229,6 +229,9 @@ Value remains unchanged.</value>
   <data name="mainForm_toolStripButton_job_run_Text" xml:space="preserve">
     <value>Run</value>
   </data>
+  <data name="mainForm_toolStripMenuItem_file_createLink_Text" xml:space="preserve">
+    <value>Create desktop shortcuts</value>
+  </data>
   <data name="mainForm_toolStripMenuItem_file_exit_Text" xml:space="preserve">
     <value>Exit</value>
   </data>

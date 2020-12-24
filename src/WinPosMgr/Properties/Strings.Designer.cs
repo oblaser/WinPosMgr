@@ -389,6 +389,15 @@ namespace WinPosMgr.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create desktop shortcuts.
+        /// </summary>
+        internal static string mainForm_toolStripMenuItem_file_createLink_Text {
+            get {
+                return ResourceManager.GetString("mainForm_toolStripMenuItem_file_createLink_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exit.
         /// </summary>
         internal static string mainForm_toolStripMenuItem_file_exit_Text {
