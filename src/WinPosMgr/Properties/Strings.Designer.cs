@@ -98,6 +98,15 @@ namespace WinPosMgr.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to get.
+        /// </summary>
+        internal static string editJob_button_getRect {
+            get {
+                return ResourceManager.GetString("editJob_button_getRect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Test.
         /// </summary>
         internal static string editJob_button_test {
@@ -461,15 +470,6 @@ namespace WinPosMgr.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Process not found:.
-        /// </summary>
-        internal static string nsApplication_Job_Run_Warning_ProcNotFound {
-            get {
-                return ResourceManager.GetString("nsApplication_Job_Run_Warning_ProcNotFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Invalid section.
         /// </summary>
         internal static string nsApplication_JobsFile_Get_ErrorInvalidSection {
@@ -529,6 +529,15 @@ namespace WinPosMgr.Properties {
         internal static string settings_titel {
             get {
                 return ResourceManager.GetString("settings_titel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Process not found:.
+        /// </summary>
+        internal static string warning_ProcNotFound {
+            get {
+                return ResourceManager.GetString("warning_ProcNotFound", resourceCulture);
             }
         }
     }

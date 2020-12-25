@@ -2,7 +2,7 @@
 
 \author         Oliver Blaser
 
-\date           16.12.2020
+\date           25.12.2020
 
 \copyright      GNU GPLv3 - Copyright (c) 2020 Oliver Blaser
 
@@ -157,7 +157,7 @@ namespace WinPosMgr.Application
                 {
                     string tmpStr = String.Empty;
                     for (int i = 0; i < notFoundProcesses.Count; ++i) tmpStr += "\n" + notFoundProcesses[i];
-                    warning(Properties.Strings.nsApplication_Job_Run_Warning_ProcNotFound + tmpStr, opMode, opModeRunErrorReporting);
+                    warning(Properties.Strings.warning_ProcNotFound + tmpStr, opMode, opModeRunErrorReporting);
                 }
 
                 if ((opMode == Settings.OpMode.gui) && (thisAppHwnd != IntPtr.Zero)) SetWindowPos(thisAppHwnd, HWND_TOP, -1, -1, -1, -1, SWP_NOSIZE | SWP_NOMOVE);

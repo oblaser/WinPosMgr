@@ -2,7 +2,7 @@
 
 \author         Oliver Blaser
 
-\date           18.12.2020
+\date           25.12.2020
 
 \copyright      GNU GPLv3 - Copyright (c) 2020 Oliver Blaser
 
@@ -16,6 +16,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -34,6 +35,7 @@ namespace WinPosMgr.Forms
             this.Text = title;
 
             this.button_cancel.Text = Properties.Strings.gCancel;
+            this.button_getRect.Text = Properties.Strings.editJob_button_getRect;
             this.button_ok.Text = Properties.Strings.gOK;
             this.button_test.Text = Properties.Strings.editJob_button_test;
 
@@ -101,6 +103,25 @@ namespace WinPosMgr.Forms
             }
         }
 
+        private void button_getRect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                RECT rect = new RECT();
+
+                if (GetWindowRect(GetMainWindowHandle(this.textBox_procName.Text), ref rect))
+                {
+                    this.numericUpDown_position_x.Value = rect.Left;
+                    this.numericUpDown_position_y.Value = rect.Top;
+                    this.numericUpDown_size_x.Value = rect.Right - rect.Left;
+                    this.numericUpDown_size_y.Value = rect.Bottom - rect.Top;
+                }
+            }
+            catch (Exception ex)
+            {
+                Forms.MessageBox.Warning(ex.Message);
+            }
+        }
         private void button_setProcName_Click(object sender, EventArgs e)
         {
             this.textBox_procName.Text = this.listBox_procSearchResult.Text;
@@ -144,6 +165,31 @@ namespace WinPosMgr.Forms
             return result.ToArray();
         }
 
+        private static IntPtr GetMainWindowHandle(string procName)
+        {
+            System.Diagnostics.Process[] procList = System.Diagnostics.Process.GetProcesses();
+
+            int procIndex = -1;
+
+            for (int pi = 0; pi < procList.Length; ++pi)
+            {
+                if (procName == procList[pi].ProcessName)
+                {
+                    procIndex = pi;
+                    pi = procList.Length;
+                }
+            }
+
+            if (procIndex == -1)
+            {
+                throw new Exception(Properties.Strings.warning_ProcNotFound + " " + procName);
+            }
+            else
+            {
+                return procList[procIndex].MainWindowHandle;
+            }
+        }
+
         public Application.Job GetJob()
         {
             this.job.ProcessName = this.textBox_procName.Text;
@@ -169,5 +215,32 @@ namespace WinPosMgr.Forms
 #if(DEBUG)
         private bool tmpDEBUG; // the automatically generated event functions are placed after this line (the last in this class) by Visual Studio
 #endif
+    }
+}
+
+
+namespace WinPosMgr.Forms
+{
+    partial class editJob
+    {
+        [StructLayout(LayoutKind.Sequential)]
+        private struct RECT
+        {
+            public int Left;
+            public int Top;
+            public int Right;
+            public int Bottom;
+        }
+
+        // https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getwindowrect
+        /// <summary>
+        /// Retrieves the dimensions of the bounding rectangle of the specified window. The dimensions are given in screen coordinates that are relative to the upper-left corner of the screen.
+        /// </summary>
+        /// <param name="hWnd">A handle to the window.</param>
+        /// <param name="lpRect">A pointer to a RECT structure that receives the screen coordinates of the upper-left and lower-right corners of the window.</param>
+        /// <returns>If the function succeeds, the return value is nonzero.</returns>
+        [DllImport("user32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool GetWindowRect(IntPtr hWnd, ref RECT lpRect);
     }
 }

@@ -130,6 +130,9 @@ Now running in GUI mode.</value>
   <data name="cliArg_opMode_run" xml:space="preserve">
     <value>run</value>
   </data>
+  <data name="editJob_button_getRect" xml:space="preserve">
+    <value>get</value>
+  </data>
   <data name="editJob_button_test" xml:space="preserve">
     <value>Test</value>
   </data>
@@ -260,9 +263,6 @@ Value remains unchanged.</value>
   <data name="nsApplication_JobsFile_Get_ErrorParse" xml:space="preserve">
     <value>Could not parse job in section</value>
   </data>
-  <data name="nsApplication_Job_Run_Warning_ProcNotFound" xml:space="preserve">
-    <value>Process not found:</value>
-  </data>
   <data name="settings_general_defaultOpMode" xml:space="preserve">
     <value>Default Mode</value>
   </data>
@@ -277,5 +277,8 @@ Value remains unchanged.</value>
   </data>
   <data name="settings_titel" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="warning_ProcNotFound" xml:space="preserve">
+    <value>Process not found:</value>
   </data>
 </root>

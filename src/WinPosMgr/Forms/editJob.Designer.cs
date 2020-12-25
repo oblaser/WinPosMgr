@@ -38,21 +38,22 @@ namespace WinPosMgr.Forms
             this.textBox_procName = new System.Windows.Forms.TextBox();
             this.button_test = new System.Windows.Forms.Button();
             this.groupBox_position = new System.Windows.Forms.GroupBox();
-            this.numericUpDown_position_x = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown_position_y = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown_position_x = new System.Windows.Forms.NumericUpDown();
             this.groupBox_size = new System.Windows.Forms.GroupBox();
             this.numericUpDown_size_y = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown_size_x = new System.Windows.Forms.NumericUpDown();
             this.groupBox_flags = new System.Windows.Forms.GroupBox();
-            this.checkBox_flags_enabled = new System.Windows.Forms.CheckBox();
-            this.checkBox_flags_noSize = new System.Windows.Forms.CheckBox();
-            this.checkBox_flags_noMove = new System.Windows.Forms.CheckBox();
             this.checkBox_flags_noZOrder = new System.Windows.Forms.CheckBox();
+            this.checkBox_flags_noMove = new System.Windows.Forms.CheckBox();
+            this.checkBox_flags_noSize = new System.Windows.Forms.CheckBox();
+            this.checkBox_flags_enabled = new System.Windows.Forms.CheckBox();
             this.comboBox_zOrder = new System.Windows.Forms.ComboBox();
+            this.button_getRect = new System.Windows.Forms.Button();
             this.groupBox_searchProc.SuspendLayout();
             this.groupBox_position.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_position_x)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_position_y)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_position_x)).BeginInit();
             this.groupBox_size.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_size_y)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_size_x)).BeginInit();
@@ -148,23 +149,6 @@ namespace WinPosMgr.Forms
             this.groupBox_position.TabStop = false;
             this.groupBox_position.Text = "groupBox1";
             // 
-            // numericUpDown_position_x
-            // 
-            this.numericUpDown_position_x.Location = new System.Drawing.Point(6, 19);
-            this.numericUpDown_position_x.Maximum = new decimal(new int[] {
-            2000000,
-            0,
-            0,
-            0});
-            this.numericUpDown_position_x.Minimum = new decimal(new int[] {
-            2000000,
-            0,
-            0,
-            -2147483648});
-            this.numericUpDown_position_x.Name = "numericUpDown_position_x";
-            this.numericUpDown_position_x.Size = new System.Drawing.Size(60, 20);
-            this.numericUpDown_position_x.TabIndex = 0;
-            // 
             // numericUpDown_position_y
             // 
             this.numericUpDown_position_y.Location = new System.Drawing.Point(72, 19);
@@ -182,11 +166,28 @@ namespace WinPosMgr.Forms
             this.numericUpDown_position_y.Size = new System.Drawing.Size(60, 20);
             this.numericUpDown_position_y.TabIndex = 1;
             // 
+            // numericUpDown_position_x
+            // 
+            this.numericUpDown_position_x.Location = new System.Drawing.Point(6, 19);
+            this.numericUpDown_position_x.Maximum = new decimal(new int[] {
+            2000000,
+            0,
+            0,
+            0});
+            this.numericUpDown_position_x.Minimum = new decimal(new int[] {
+            2000000,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDown_position_x.Name = "numericUpDown_position_x";
+            this.numericUpDown_position_x.Size = new System.Drawing.Size(60, 20);
+            this.numericUpDown_position_x.TabIndex = 0;
+            // 
             // groupBox_size
             // 
             this.groupBox_size.Controls.Add(this.numericUpDown_size_y);
             this.groupBox_size.Controls.Add(this.numericUpDown_size_x);
-            this.groupBox_size.Location = new System.Drawing.Point(231, 137);
+            this.groupBox_size.Location = new System.Drawing.Point(231, 154);
             this.groupBox_size.Name = "groupBox_size";
             this.groupBox_size.Size = new System.Drawing.Size(139, 47);
             this.groupBox_size.TabIndex = 9;
@@ -235,40 +236,10 @@ namespace WinPosMgr.Forms
             this.groupBox_flags.Controls.Add(this.checkBox_flags_enabled);
             this.groupBox_flags.Location = new System.Drawing.Point(376, 72);
             this.groupBox_flags.Name = "groupBox_flags";
-            this.groupBox_flags.Size = new System.Drawing.Size(116, 112);
+            this.groupBox_flags.Size = new System.Drawing.Size(116, 129);
             this.groupBox_flags.TabIndex = 10;
             this.groupBox_flags.TabStop = false;
             this.groupBox_flags.Text = "groupBox1";
-            // 
-            // checkBox_flags_enabled
-            // 
-            this.checkBox_flags_enabled.AutoSize = true;
-            this.checkBox_flags_enabled.Location = new System.Drawing.Point(6, 20);
-            this.checkBox_flags_enabled.Name = "checkBox_flags_enabled";
-            this.checkBox_flags_enabled.Size = new System.Drawing.Size(80, 17);
-            this.checkBox_flags_enabled.TabIndex = 0;
-            this.checkBox_flags_enabled.Text = "checkBox1";
-            this.checkBox_flags_enabled.UseVisualStyleBackColor = true;
-            // 
-            // checkBox_flags_noSize
-            // 
-            this.checkBox_flags_noSize.AutoSize = true;
-            this.checkBox_flags_noSize.Location = new System.Drawing.Point(6, 43);
-            this.checkBox_flags_noSize.Name = "checkBox_flags_noSize";
-            this.checkBox_flags_noSize.Size = new System.Drawing.Size(80, 17);
-            this.checkBox_flags_noSize.TabIndex = 1;
-            this.checkBox_flags_noSize.Text = "checkBox2";
-            this.checkBox_flags_noSize.UseVisualStyleBackColor = true;
-            // 
-            // checkBox_flags_noMove
-            // 
-            this.checkBox_flags_noMove.AutoSize = true;
-            this.checkBox_flags_noMove.Location = new System.Drawing.Point(6, 66);
-            this.checkBox_flags_noMove.Name = "checkBox_flags_noMove";
-            this.checkBox_flags_noMove.Size = new System.Drawing.Size(80, 17);
-            this.checkBox_flags_noMove.TabIndex = 2;
-            this.checkBox_flags_noMove.Text = "checkBox3";
-            this.checkBox_flags_noMove.UseVisualStyleBackColor = true;
             // 
             // checkBox_flags_noZOrder
             // 
@@ -280,19 +251,60 @@ namespace WinPosMgr.Forms
             this.checkBox_flags_noZOrder.Text = "checkBox4";
             this.checkBox_flags_noZOrder.UseVisualStyleBackColor = true;
             // 
+            // checkBox_flags_noMove
+            // 
+            this.checkBox_flags_noMove.AutoSize = true;
+            this.checkBox_flags_noMove.Location = new System.Drawing.Point(6, 66);
+            this.checkBox_flags_noMove.Name = "checkBox_flags_noMove";
+            this.checkBox_flags_noMove.Size = new System.Drawing.Size(80, 17);
+            this.checkBox_flags_noMove.TabIndex = 2;
+            this.checkBox_flags_noMove.Text = "checkBox3";
+            this.checkBox_flags_noMove.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_flags_noSize
+            // 
+            this.checkBox_flags_noSize.AutoSize = true;
+            this.checkBox_flags_noSize.Location = new System.Drawing.Point(6, 43);
+            this.checkBox_flags_noSize.Name = "checkBox_flags_noSize";
+            this.checkBox_flags_noSize.Size = new System.Drawing.Size(80, 17);
+            this.checkBox_flags_noSize.TabIndex = 1;
+            this.checkBox_flags_noSize.Text = "checkBox2";
+            this.checkBox_flags_noSize.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_flags_enabled
+            // 
+            this.checkBox_flags_enabled.AutoSize = true;
+            this.checkBox_flags_enabled.Location = new System.Drawing.Point(6, 20);
+            this.checkBox_flags_enabled.Name = "checkBox_flags_enabled";
+            this.checkBox_flags_enabled.Size = new System.Drawing.Size(80, 17);
+            this.checkBox_flags_enabled.TabIndex = 0;
+            this.checkBox_flags_enabled.Text = "checkBox1";
+            this.checkBox_flags_enabled.UseVisualStyleBackColor = true;
+            // 
             // comboBox_zOrder
             // 
             this.comboBox_zOrder.FormattingEnabled = true;
-            this.comboBox_zOrder.Location = new System.Drawing.Point(231, 201);
+            this.comboBox_zOrder.Location = new System.Drawing.Point(231, 216);
             this.comboBox_zOrder.Name = "comboBox_zOrder";
             this.comboBox_zOrder.Size = new System.Drawing.Size(139, 21);
             this.comboBox_zOrder.TabIndex = 11;
+            // 
+            // button_getRect
+            // 
+            this.button_getRect.Location = new System.Drawing.Point(237, 125);
+            this.button_getRect.Name = "button_getRect";
+            this.button_getRect.Size = new System.Drawing.Size(126, 23);
+            this.button_getRect.TabIndex = 12;
+            this.button_getRect.Text = "_get_";
+            this.button_getRect.UseVisualStyleBackColor = true;
+            this.button_getRect.Click += new System.EventHandler(this.button_getRect_Click);
             // 
             // editJob
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(504, 326);
+            this.Controls.Add(this.button_getRect);
             this.Controls.Add(this.comboBox_zOrder);
             this.Controls.Add(this.groupBox_flags);
             this.Controls.Add(this.groupBox_size);
@@ -315,8 +327,8 @@ namespace WinPosMgr.Forms
             this.groupBox_searchProc.ResumeLayout(false);
             this.groupBox_searchProc.PerformLayout();
             this.groupBox_position.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_position_x)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_position_y)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_position_x)).EndInit();
             this.groupBox_size.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_size_y)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_size_x)).EndInit();
@@ -349,5 +361,6 @@ namespace WinPosMgr.Forms
         private System.Windows.Forms.CheckBox checkBox_flags_noSize;
         private System.Windows.Forms.CheckBox checkBox_flags_enabled;
         private System.Windows.Forms.ComboBox comboBox_zOrder;
+        private System.Windows.Forms.Button button_getRect;
     }
 }
